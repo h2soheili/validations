@@ -1,0 +1,56 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { getShamsiNow } from "@uxid/utils";
+import { UXIDSection } from "@uxid/components";
+
+export const GetShamsiNow =()=>{
+    return (
+    <div>
+        <UXIDSection tag="span">
+            {getShamsiNow()}
+        </UXIDSection>
+    </div>
+  );
+}
+
+<Meta title="utils/moments/getShamsiNowDate" />
+
+export const Template = (args) => <GetShamsiNow {...args} />;
+
+## گرفتن تاریخ روز به شمسی
+
+<br />
+
+برای گرفتن تاریخ روز به فرمت شمسی از این متد استفاده میشود
+
+## نحوه استفاده
+
+<br />
+
+`import { getShamsiNow } from "@uxid/utils";`
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    <UXIDSection tag="span">
+        {getShamsiNow()}
+    </UXIDSection>
+  `}
+/>
+
+<br />
+
+<Story name="getShamsiNowDate">
+  {Template.bind({})}
+</Story>
+
+<br />

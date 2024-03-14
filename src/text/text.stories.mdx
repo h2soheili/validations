@@ -1,0 +1,92 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { useText } from "@uxid/utils";
+
+export const UseDecEnc =()=>{
+  const { replaceCp1252ToUtf8 , replaceUtf8ToCp1252 } = useText();
+    return (
+    <div>
+      <h4>{replaceCp1252ToUtf8("ÞÑÖ ÇáÍÓäå ÇÔÎÇÕ ÍÞæÞí ÇÔÊÑÇ˜í")}</h4>
+      <h4>{replaceUtf8ToCp1252("قرض الحسنه اشخاص حقوقى اشتراكى")}</h4>
+    </div>
+  );
+}
+
+export const UseDecEnc2 =()=>{
+  const { replaceCp1252ToUtf8 , replaceUtf8ToCp1252 } = useText();
+    return (
+    <div>
+      <h4>{replaceUtf8ToCp1252("قرض الحسنه اشخاص حقوقى اشتراكى")}</h4>
+      <h4>{replaceCp1252ToUtf8("ÞÑÖ ÇáÍÓäå ÇÔÎÇÕ ÍÞæÞí ÇÔÊÑÇ˜í")}</h4>
+    </div>
+  );
+}
+
+
+<Meta title="utils/text" />
+
+export const Template = (args) => <UseDecEnc {...args} />;
+
+## تبدیل یونیکد متن
+
+<br />
+
+این ابزار برای تبدیل یونیکد متن فارسی از 1252 به UTF-8 و بالعکس استفاده می شود.
+
+## نحوه استفاده
+
+<br />
+
+<Source
+  language="js"
+  code={`
+  import { useText } from "@uxid/utils"
+  `}
+/>
+
+<br />
+
+## حالت utf8 به 1252
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    const { replaceUtf8ToCp1252 } = useText();
+    replaceUtf8ToCp1252("قرض الحسنه اشخاص حقوقى اشتراكى")
+  `}
+/>
+
+<br />
+
+<Story name="Decoding/Encoding">
+  {Template.bind({})}
+</Story>
+
+<br />
+
+## حالت 1252 به utf8
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    const { replaceCp1252ToUtf8 } = useText();
+    replaceCp1252ToUtf8("ÞÑÖ ÇáÍÓäå ÇÔÎÇÕ ÍÞæÞí ÇÔÊÑÇ˜í")
+  `}
+/>
+
+<br />
+
+<Story name="Encoding/Decoding">
+  {UseDecEnc2.bind({})}
+</Story>

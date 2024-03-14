@@ -1,0 +1,79 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { linkTo } from '@storybook/addon-links'
+import { printPreview } from "@uxid/utils";
+import PrintPage from "./6365.print";
+import { UXIDButton } from "@uxid/components";
+
+export const PrintRecipe =()=>{
+    const userInfo = {
+        name: 'نام',
+        family: 'نام خانوادگی'
+    }
+    const handlePrint = () =>{
+        printPreview(PrintPage(userInfo))()
+    }
+    return (
+    <div>
+      <UXIDButton color='primary' onClick={handlePrint} >پرینت رسید</UXIDButton>
+    </div>
+  );
+}
+
+<Meta title="utils/print previrew/printRecipe" />
+
+export const Template = (args) => <PrintRecipe {...args} />;
+
+## نحوه چاپ رسید
+
+<br />
+
+برای چاپ رسید به این صورت عمل میکنیم که داده مورد نظر خود که به شکل آبجکت می باشد 
+
+را به تابع نمونه html مورد نظر خود پاس داده و آن تابع را داخل متد printPreview قرار میدهیم
+
+تابع نمونه html به این صورت است که آبجکت داده را گرفته و در قسمت هایی که درون آن مشخص کرده ایم قرار می دهد
+
+در این مثال تابع نمونه PrintPage نام دارد
+
+## نحوه استفاده
+
+<br />
+
+<Source
+  language="js"
+  code={`
+  import { printPreview } from "@uxid/utils";
+  `}
+/>
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    const userInfo = {
+        name: 'نام',
+        family: 'نام خانوادگی'
+    }
+    const handlePrint = () =>{
+        printPreview(PrintPage(userInfo))()
+    }
+    <UXIDButton color='primary' onClick={handlePrint} >پرینت رسید</UXIDButton>
+  `}
+/>
+
+<br />
+
+<Story name="printRecipe">
+  {Template.bind({})}
+</Story>
+
+<br />

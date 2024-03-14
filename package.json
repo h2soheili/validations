@@ -1,0 +1,36 @@
+{
+  "name": "@uxid/utils",
+  "version": "1.0.0",
+  "description": "UXID utils",
+  "keywords": [
+    "uxid",
+    "utils"
+  ],
+  "files":[
+    "dist"
+  ],
+  "homepage": "",
+  "license": "ISC",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "main:src": "src/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist --source-maps inline --copy-files",
+    "test": "react-scripts test",
+    "lint": "eslint ./src/**/*.js --max-warnings=0 --format=codeframe"
+  },
+  "dependencies": {
+    "@uxid/service": "^1.0.0",
+    "html-loader": "^1.1.0",
+    "moment-jalaali": "^0.9.1",
+    "react-transition-group": "^4.4.2"
+  },
+  "devDependencies": {
+    "customize-cra": "^1.0.0",
+    "@babel/cli": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-preset-minify": "^0.5.1"
+  },
+  "gitHead": "d787d62e845d2aaee5e4897e4d35681705a5d0d0"
+}

@@ -1,0 +1,56 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { miladiToShamsi } from "@uxid/utils";
+import { UXIDSection } from "@uxid/components";
+
+export const MiladiToShamsi =()=>{
+    return (
+    <div>
+        <UXIDSection tag="span">
+            {miladiToShamsi("20210127")}
+        </UXIDSection>
+    </div>
+  );
+}
+
+<Meta title="utils/moments/miladiToShamsi" />
+
+export const Template = (args) => <MiladiToShamsi {...args} />;
+
+## تبدیل تاریخ میلادی به شمسی
+
+<br />
+
+برای تبدیل تاریخ میلادی به شمسی تاریخ را به صورت رشته ای به این تابع پاس میدهیم و آن را به شمسی تبدیل میکند
+
+## نحوه استفاده
+
+<br />
+
+`import { miladiToShamsi } from "@uxid/utils";`
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    <UXIDSection tag="span">
+        {miladiToShamsi("20210127")}
+    </UXIDSection>
+  `}
+/>
+
+<br />
+
+<Story name="miladiToShamsiDate">
+  {Template.bind({})}
+</Story>
+
+<br />

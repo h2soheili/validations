@@ -1,0 +1,120 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { localeOption } from "@uxid/utils";
+
+<Meta title="utils/Locale Methods" />
+
+## نحوه استفاده از متد های کاربردی
+
+<p>جهت استفاده از متد های ذکر شده در جدول زیر از پکیج utils استفاده نمایید. </p>
+<p>نمامی ترجمه هایی که پیاده سازی شده اند در زیر آوورده شده است و اگر بخواهید نمونه های جدید استفاده کنید باید فایل local جداگانه اضافه نموده و مقادیرمورد نظر را اضافه نمایید و مورد استفاده قرار دهید.</p>
+<p>موارد پیاده سازی شده:</p>
+<p>
+    switchRight,switchLeft,uploadText,uploadFile,uploadSize,download,chooseFile,uploadYourFile,reset,title,upload,confirm,
+    notConfirm,continue,edit,print,revoke,prevStep,exit,yes,no,ok,cancle,postalCode,nationalCode,customerId,
+    mobileNo,shebaNo,accountNo,cardNo,checkNo,chequeSerial,chequeSeriesAlphabetic,chequeSeriesNumeric,inclusiveNo,
+    nationalCardSeriSerial,nationalId,documentNo,AM,PM,timInvalid,uploadMessageDefault,errorFileSize,errorFileExtension,
+    errorImageFormat,errorMaxHeight,errorMinHeight,errorMaxWidth,errorMinWidth,confirmText,systemName,changeUser,chooseSystem,
+    username,password,rememberUsername,welcome,logintosystem,helppassword,loginUser,invalidUsernameandPassword,
+    sepordeh,tashilat,center,setad,stickyNote,stickyNoteDate,highest,high,normal,low,lowest,scanner,card,perforation,detail,assignment,next,prev,
+</p>
+<Source
+  language="js"
+  code={`
+ import { 
+    locale,
+    getLocales ,
+    setLocale ,
+    getLocale,
+    addLocale,
+    updateLocaleOption,
+    updateLocaleOptions,
+    localeOption,
+    localeOptions ,
+    injectIntl } from "@uxid/utils";
+  `}
+/>
+
+<p>جدول زیر متدها و توضیحات و نحوه عملکرد آنها را نشان می دهد. توجه داشته باشید پراپس های ستاره دار الزامی می باشند</p>
+
+<div style={{textAlign:"center"}}>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>نام متد</th>
+    <th>توضیح</th>
+    <th>مثال</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>setLocale</td>
+    <td>تنظیم زبان مورد نظر . فارسی(fa) و انگلیسی (en) که به صورت پیش فرض فارسی می باشد</td>
+    <td>setLocale(locale*)</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>getLocale</td>
+    <td>زبان جاری را به عنوان خروجی برمی گرداند</td>
+    <td>getLocale()</td>
+  </tr>
+    <tr>
+    <td>3</td>
+    <td>getLocales</td>
+    <td>خروجی این متد key و value در تمامی زبان های تعریف شده می باشد
+      که به صورت پیش فرض موارد تعریف شده در یونیفرم را نمایش می دهد. برای دسترسی به متغیرهای تعریف شده خودتان فایل چندزبانه خودتان را به عنوان ورودی به این متد پاس دهید
+    </td>
+    <td>getLocales(store)</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>locale</td>
+    <td>خروجی متد زبان جاری به همراه تمام آپشن های آن زبان می باشد</td>
+    <td>locale(locale , store)</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>addLocale</td>
+    <td>جهت اضافه کردن یک زبان خاص غیر از انگلیسی و فارسی</td>
+    <td>addLocale(locale*, options*)</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>updateLocaleOption</td>
+    <td>این متد جهت ویرایش آپشن های پیش فرض یونیفرم می باشد</td> 
+    <td>updateLocaleOption(key*, value*, locale)</td> 
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>updateLocaleOptions</td>
+    <td>این متد جهت آپدیت کلی یک زبان برای فایل پیش فرض یونیفرم می باشد.</td>
+    <td>updateLocaleOptions(options*, locale)</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>localeOption</td>
+    <td>خروجی متد ترجمه یک لغت یا متن می باشد</td> 
+    <td>localeOption(key*, store , locale)</td> 
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>localeOptions</td>
+    <td>خروجی متد تمام آپشن های زبان جاری می باشد</td>
+    <td>localeOptions(locale , store)</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>injectIntl</td>
+    <td>این متد یک HOC می باشد و زمانی که کامپوننت خود را به آن پاس دهید به صورت پیش فرض زبان جاری را تحت پراپس locale و آپشن های زبان جاری را تحت عنوان پراپس intlOptions به کامپوننت اضافه می کند</td>
+    <td>injectIntl(Comp* , store , locale)</td>
+  </tr>
+</table>
+
+</div>

@@ -1,0 +1,81 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { addToShamsi } from "@uxid/utils";
+import { UXIDSection } from "@uxid/components";
+const object = {
+    years: 1,
+    days: 10,
+    months: 3,
+    
+  }
+
+export const AddToShamsi =()=>{
+    return (
+    <div>
+        <UXIDSection tag="span">
+            date: {addToShamsi("13991108", object).date}
+        </UXIDSection>
+        <UXIDSection tag="span">
+            time: {addToShamsi("13991108", object).time}
+        </UXIDSection>
+    </div>
+  );
+}
+
+<Meta title="utils/moments/addToShamsiDate" />
+
+export const Template = (args) => <AddToShamsi {...args} />;
+
+## اضافه کردن به تاریخ شمسی
+
+<br />
+
+برای اضافه کردن به تاریخ شمسی به صورت زیر عمل میکنیم:
+
+یک آبجکت از مقادیری که میخواهیم به تاریخ اضافه کنیم را به متد پاس میدهیم نمونه آبجکت در کد نمونه آورده شده است
+
+هر مقداری که میخواهیم به تاریخ اضافه کنیم را در آبجکت قرار می دهیم و اجباری نیست که همه مقادیر را درون آبجکت قرار دهیم
+
+به عنوان مثال میخواهیم یک سال به تاریخ کنونی اضافه کنیم فقط مقدار years را برابر با یک قرار داده و درون آبجکت قرار میدهیم
+
+این متد یک آبجکت برمیگرداند که شامل تاریخ و زمان است
+
+## نحوه استفاده
+
+<br />
+
+`import { addToShamsi } from "@uxid/utils";`
+
+<br />
+
+<Source
+  language="js"
+  code={`
+  const object = {
+    years: 1,
+    months: 3,
+    days: 10,
+    hours: 1,
+    minutes: 20,
+    seconds: 10
+  }
+    <UXIDSection tag="span">
+        {addToShamsi("13991108", object)}
+    </UXIDSection>
+  `}
+/>
+
+<br />
+
+<Story name="addToShamsiDate">
+  {Template.bind({})}
+</Story>
+
+<br />

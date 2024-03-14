@@ -1,0 +1,71 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { CopyToClipboard } from "@uxid/utils";
+
+export const MyCopyToClipboard =(args)=>{
+    return (
+    <div>
+      <CopyToClipboard {...args} />
+    </div>
+  );
+}
+
+<Meta title="utils/copyToClipboard" component={MyCopyToClipboard}/>
+
+# copyToClipboard
+
+<br />
+
+`copyToClipboard`
+
+<br />
+
+<br />
+
+برای اینکه مقداری را به حافظه clipboard انتقال دهیم و هر جا خواستیم استفاده کنیم از این کامپوننت استفاده می کنیم
+
+استفاده از این کامپوننت به این صورت است که مقداری که به کامپوننت کنار آن می دهیم را به این کامپوننت هم پاس میدهیم
+
+و این کامپوننت آن مقدار را به clipboard انتقال می دهد
+
+<br />
+
+## Usage
+
+<br />
+
+<Source
+  language="js"
+  code={`
+  import { CopyToClipboard } from "@uxid/utils";
+  `}
+/>
+
+<br />
+
+export const Template = (args) => <MyCopyToClipboard {...args} />;
+
+<Source
+  language="js"
+  code={`
+    <CopyToClipboard text='somthing' />
+  `}
+/>
+
+<Story
+  name="CopyToClipboard"
+  args={{
+    text: 'this is a test text'
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+<br />

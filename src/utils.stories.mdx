@@ -1,0 +1,1031 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+
+<Meta title="utils/Useful Methods" />
+
+## نحوه استفاده از متد های کاربردی
+
+<p>جهت استفاده از متد های ذکر شده در جدول زیر از پکیج utils استفاده نمایید. </p>
+
+<Source
+  language="js"
+  code={`
+    import { convertToMoney } from "@uxid/utils";
+  `}
+/>
+
+<p>بجای متد convertToMoney متد مورد نظر را جایگزین نمایید.</p>
+
+<div style={{textAlign:"center"}}>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>نام متد</th>
+    <th>توضیح</th>
+    <th>مثال</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>convertToMoney</td>
+    <td>تبدیل ورودی متد(عدد) به مبلغ</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=convertToMoney(20000)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>convertNumberToDate</td>
+    <td>تبدیل ورودی متد(عدد) به تاریخ</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=convertNumberToDate(991201)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>convertNumberToTime</td>
+    <td>تبدیل ورودی متد(عدد) به ساعت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=convertNumberToTime(1230)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>convertNumberToAccountNumber</td>
+    <td>تبدیل ورودی متد(عدد) به شماره حساب</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=convertNumberToAccountNumber(236547899855)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>convertNumberToShebaNumber</td>
+    <td>تبدیل ورودی متد(عدد) به شماره شبا</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=convertNumberToShebaNumber(96231456987456321456987865)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>convertToJalali</td>
+    <td>تبدیل ورودی متد به تاریخ شمسی</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=convertToJalali(19990612)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>PersianNumToStringNum</td>
+    <td>تبدیل عدد به رشته </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=PersianNumToStringNum(12345)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>validateNationalCode</td>
+    <td>اعتبار سنجی کد ملی </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=validateNationalCode(0012365489)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>validateCardNumber</td>
+    <td>اعتبار سنجی شماره کارت </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=validateCardNumber(5022291045879636)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>validateAccountNumber</td>
+    <td>اعتبار سنجی شماره حساب </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=validateAccountNumber(3265458987)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>validateShebaNumber</td>
+    <td>اعتبار سنجی شماره شبا </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=validateShebaNumber(IR231456987456321456987865)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>convertDateTime</td>
+    <td>تبدیل ورودی متد(تاریخ) به ساعت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut=convertDateTime(99/12/01)
+        console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>innerWidth</td>
+    <td>تبدیل innerWidth </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.innerWidth(el)
+       console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td>Width</td>
+    <td>تبدیل Width </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.Width(el)
+       console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>getWindowScrollTop</td>
+    <td>getWindowScrollTop متد برای رفتن به بالای صفحه</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.getWindowScrollTop()
+       console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>getWindowScrollLeft</td>
+    <td>getWindowScrollLeft متد برای رفتن به سمت چپ صفحه</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.getWindowScrollLeft()
+       console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td>getOuterWidth</td>
+    <td>getOuterWidth متدی برای تبدیل OuterWidth</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.getOuterWidth(el,margin)
+       console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>getOuterHeight</td>
+    <td>getOuterHeight متدی برای تبدیل OuterHeight</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+        const outPut = DomHandler.getOuterHeight(el,margin)
+         console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>getClientHeight</td>
+    <td>getClientHeight متدی برای تبدیل ClientHeight</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+    const outPut = DomHandler.getClientHeight(el,margin)
+    console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>24</td>
+    <td>getClientHeight</td>
+    <td>getClientHeight متدی برای تبدیل ClientHeight</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+         const outPut = DomHandler.getClientHeight(el,margin)
+         console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>25</td>
+    <td>getViewport</td>
+    <td>getViewport متدی برای تبدیل Viewport</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getViewport()
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>getHeight</td>
+    <td>پیاده سازی متد ارتفاع المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getHeight(el)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>27</td>
+    <td>getWidth</td>
+    <td>پیاده سازی متد عرض المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.getWidth(el)
+       console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>28</td>
+    <td>alignOverlay</td>
+    <td>متد برای همتراز نمودن</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.alignOverlay(overlay, target, appendTo)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>29</td>
+    <td>absolutePosition</td>
+    <td>متد پوزیشن ابسلوت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.absolutePosition(element,target)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>relativePosition</td>
+    <td>متد پوزیشن ریلیتیو</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.relativePosition(element,target)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>31</td>
+    <td>flipfitCollision</td>
+    <td>متد flipfitCollision</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.flipfitCollision(element, target, my = 'left top', at = 'left bottom', callback)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>32</td>
+    <td>getOffset</td>
+    <td>متد دریافت offset المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.getOffset(el)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>33</td>
+    <td>index</td>
+    <td>متد ایندکس المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.index(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>34</td>
+    <td>addMultipleClasses</td>
+    <td>متد اضافه کردن className ها به المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.addMultipleClasses(element,className)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>35</td>
+    <td>addClass</td>
+    <td>متد اضافه کردن className</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.addClass(element,className)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>36</td>
+    <td>removeClass</td>
+    <td> متد حذف کردن className</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+       const outPut = DomHandler.removeClass(element,className)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>37</td>
+    <td>hasClass</td>
+    <td>در المنت className متد بررسی</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.hasClass(element,className)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>38</td>
+    <td>find</td>
+    <td>متد برای پیدا کردن سلکتور در المنت در آرایه ا</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.find(element,selector)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>39</td>
+    <td>findSingle</td>
+    <td>متد برای پیدا کردن سلکتور در المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.findSingle(element,selector)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>40</td>
+    <td>findCollisionPosition</td>
+    <td>متد پیداکردن CollisionPosition </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.findCollisionPosition(position)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>41</td>
+    <td>getParents</td>
+    <td>متد برای دریافت parentهای المنت </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getParents(element, parents = [])
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>42</td>
+    <td>getScrollableParents</td>
+    <td>متد برای قابل اسکرول بودن</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getScrollableParents(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>43</td>
+    <td>getHiddenElementOuterHeight</td>
+    <td>متد برای دریافت ارتفاع المنت های hidden</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getHiddenElementOuterHeight(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>44</td>
+    <td>getHiddenElementOuterWidth</td>
+    <td>متد برای دریافت عرض المنت های hidden</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getHiddenElementOuterWidth(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>45</td>
+    <td>getHiddenElementDimensions</td>
+    <td>متد برای دادن ابعاد المنت های hidden </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getHiddenElementDimensions(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>46</td>
+    <td>fadeIn</td>
+    <td>متد fadeIn</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.fadeIn(element,duration)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>47</td>
+    <td>fadeOut</td>
+    <td>متد fadeOut</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.fadeOut(element,duration)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>48</td>
+    <td>getUserAgent</td>
+    <td>متد getUserAgent</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getUserAgent()
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>49</td>
+    <td>isIOS</td>
+    <td>متد تست آی او اس</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.isIOS()
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>50</td>
+    <td>isAndroid</td>
+    <td>متد تست اندروید</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.isAndroid()
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>51</td>
+    <td>isFunction</td>
+    <td>متد isFunction در آبجکت ها</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.isFunction(obj)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>52</td>
+    <td>appendChild</td>
+    <td>متد اضافه نمودن مقدار به المنت موردنظر</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.appendChild(element,target)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>53</td>
+    <td>removeChild</td>
+    <td>متد حذف مقدار در المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.removeChild(element,target)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>54</td>
+    <td>isElement</td>
+    <td>متد isElement در آبجکت ها</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.isElement(obj)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>55</td>
+    <td>classNames</td>
+    <td>متد classNames</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = class-name.classNames(...args)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>56</td>
+    <td>scrollInView</td>
+    <td>متد محاسبه اسکرول صفحه</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.scrollInView(container, item)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>57</td>
+    <td>clearSelection</td>
+    <td>متد برای پاک کردن selection خالی و عدم استفاده در بروزر IE</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.clearSelection()
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>58</td>
+    <td>calculateScrollbarWidth</td>
+    <td>متد محاسبه عرض اسکرول بار</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.calculateScrollbarWidth(el)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>59</td>
+    <td>getBrowser</td>
+    <td>متد برای ورژن و نوع بروزر</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getBrowser()
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>60</td>
+    <td>resolveUserAgent</td>
+    <td>متد resolveUserAgent </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.resolveUserAgent()
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>61</td>
+    <td>isVisible</td>
+    <td>متد برای visible بودن المنت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.isVisible(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>62</td>
+    <td>getFocusableElements</td>
+    <td>متد برای دریافت المنت های فوکس شده </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getFocusableElements(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>63</td>
+    <td>getFirstFocusableElement</td>
+    <td>متن برای دریافت اولین المنت فوکوس شده </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getFirstFocusableElement(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>64</td>
+    <td>getLastFocusableElement</td>
+    <td>متد برای دریافت آخرین المنت فوکوس شده</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getLastFocusableElement(element)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>65</td>
+    <td>getCursorOffset</td>
+    <td>متد برای دریافت آفست مکان نما </td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = DomHandler.getCursorOffset(el, prevText, nextText, currentText)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+    <tr>
+    <td>66</td>
+    <td>equals</td>
+    <td>متدی برای برابر بودن دو آبجکت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.equals(obj1, obj2, field)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+      <tr>
+    <td>67</td>
+    <td>resolveFieldData</td>
+    <td>متد resolveFieldData</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.resolveFieldData(data,feild)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+        <tr>
+    <td>68</td>
+    <td>isFunction</td>
+    <td>متد isFunction برای آبجکت ها</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.isFunction(obj)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+          <tr>
+    <td>69</td>
+    <td>findDiffKeys</td>
+    <td>برای مقایسه دو آبجکت</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.findDiffKeys(obj1,obj2)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+            <tr>
+    <td>70</td>
+    <td>reorderArray</td>
+    <td>برای مرتب سازی آرایه ها</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.reorderArray(value, from, to)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+              <tr>
+    <td>71</td>
+    <td>findIndexInList</td>
+    <td>برای پیدا کردن هر ایندکس در لیست</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.findIndexInList(value, list, dataKey)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+                <tr>
+    <td>72</td>
+    <td>getJSXElement</td>
+    <td>دریافت JSXElement</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.getJSXElement(obj, ...params)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+                  <tr>
+    <td>73</td>
+    <td>removeAccents</td>
+    <td>عملیات حذف در stringها</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.removeAccents(str)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+                    <tr>
+    <td>74</td>
+    <td>isEmpty</td>
+    <td>متد خالی بودن value</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.isEmpty(value)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+                      <tr>
+    <td>75</td>
+    <td>isNotEmpty</td>
+    <td>متد خالی نبودن value</td>
+    <td>
+      <Source
+        language="js"
+        code={`
+      const outPut = ObjectUtils.isNotEmpty(value)
+      console.log(outPut)
+     `}
+      />
+    </td>
+  </tr>
+</table>
+
+</div>

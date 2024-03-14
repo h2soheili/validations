@@ -1,0 +1,80 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { reduceFromShamsi } from "@uxid/utils";
+import { UXIDSection } from "@uxid/components";
+const object = {
+    years: 1,
+    days: 10,
+    months: 3,
+  }
+
+export const ReduceFromShamsi =()=>{
+    return (
+    <div>
+        <UXIDSection tag="span">
+            date: {reduceFromShamsi("13991108", object).date}
+        </UXIDSection>
+        <UXIDSection tag="span">
+            time: {reduceFromShamsi("13991108", object).time}
+        </UXIDSection>
+    </div>
+  );
+}
+
+<Meta title="utils/moments/reduceFromShamsiDate" />
+
+export const Template = (args) => <ReduceFromShamsi {...args} />;
+
+## کم کردن از تاریخ شمسی
+
+<br />
+
+برای کم کردن از تاریخ شمسی به صورت زیر عمل میکنیم:
+
+یک آبجکت از مقادیری که میخواهیم از تاریخ کم کنیم را به متد پاس میدهیم نمونه آبجکت در کد نمونه آورده شده است
+
+هر مقداری که میخواهیم از تاریخ کم کنیم را در آبجکت قرار می دهیم و اجباری نیست که همه مقادیر را درون آبجکت قرار دهیم
+
+به عنوان مثال میخواهیم یک سال از تاریخ کنونی کم کنیم فقط مقدار years را برابر با یک قرار داده و درون آبجکت قرار میدهیم
+
+این متد یک آبجکت برمیگرداند که شامل تاریخ و زمان است
+
+## نحوه استفاده
+
+<br />
+
+`import { reduceFromShamsi } from "@uxid/utils";`
+
+<br />
+
+<Source
+  language="js"
+  code={`
+  const object = {
+    years: 1,
+    months: 3,
+    days: 10,
+    hours: 1,
+    minutes: 20,
+    seconds: 10
+  }
+    <UXIDSection tag="span">
+        {reduceFromShamsi("13991108", object)}
+    </UXIDSection>
+  `}
+/>
+
+<br />
+
+<Story name="reduceFromShamsiDate">
+  {Template.bind({})}
+</Story>
+
+<br />

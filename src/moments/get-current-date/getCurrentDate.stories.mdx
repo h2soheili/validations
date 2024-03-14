@@ -1,0 +1,62 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { getCurrentDate } from "@uxid/utils";
+import { UXIDSection } from "@uxid/components";
+
+export const GetCurrentDate =()=>{
+    return (
+    <div>
+        <UXIDSection tag="span">
+            date: {getCurrentDate("shamsi").date}
+        </UXIDSection>
+        <UXIDSection tag="span">
+            time: {getCurrentDate("shamsi").time}
+        </UXIDSection>
+    </div>
+  );
+}
+
+<Meta title="utils/moments/getCurrentDate" />
+
+export const Template = (args) => <GetCurrentDate {...args} />;
+
+## گرفتن تاریخ و زمان به میلادی و شمسی
+
+<br />
+
+برای اینکه تاریخ روز را بگیریم لازم است که یک ورودی به تابع دهیم که مشخص میکند شمسی میخواهیم یا میلادی
+
+این متد یک آبجکت برمیگرداند که شامل تاریخ و زمان است
+
+
+## نحوه استفاده
+
+<br />
+
+`import { getCurrentDate } from "@uxid/utils";`
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    <UXIDSection tag="span">
+        {getCurrentDate("shamsi" | "miladi")}
+    </UXIDSection>
+  `}
+/>
+
+<br />
+
+<Story name="getCurrentDateObj">
+  {Template.bind({})}
+</Story>
+
+<br />

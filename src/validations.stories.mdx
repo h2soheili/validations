@@ -1,0 +1,318 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import {
+  RequiredValidation,
+  MaxLengthValidation,
+  MobileValidation,
+  TelValidation,
+  FarsiValidation,
+  NumericValidation,
+  EnglishValidation,
+  EmailValidation,
+  PostalCodeValidation,
+  DomainValidation,
+  NationalCodeValidation,
+  AccountNumberValidaiton,
+  InclusiveNoValidation,
+  validateNationalCardSeriSerial,
+  DateValidation,
+  PasswordSimpleValidation,
+  ShebaNumberValidation,
+  CardNumberValidation,
+  NationalCardSeriSerialValidation,
+  AccountNumberValidation,
+  LengthValidation,
+  IsDateValidation,
+  IsDateAfterOrSameValidation,
+  MaxPriceValidation,
+  IsDateBeforeOrSameValidation,
+  MinPriceValidation,
+  MaxNumberValidation,
+  MinNumberValidation,
+  IsjalaliDateValidation,
+} from "@uxid/utils";
+
+<Meta title="utils/Validatins Methods" />
+
+## نحوه استفاده از متد های کاربردی
+
+<p>
+  نحوه استفاده ، به این شکل است که ولیدیشن موردنظر را import نموده و در فرم
+  موردنظر، استفاده میشود.
+</p>
+<p>
+  از توابع زیر برای ولیدیشن های پروژه می توان استفاده کرد. لازمه استفاده از این
+  ولیدیشن ها ، استفاده از پکیج formik میباشد.{" "}
+</p>
+
+<Source
+  language="js"
+  code={`
+import {
+  RequiredValidation,
+  MaxLengthValidation,
+  MobileValidation,
+  TelValidation,
+  FarsiValidation,
+  NumericValidation,
+  EnglishValidation,
+  EmailValidation,
+  PostalCodeValidation,
+  DomainValidation,
+  NationalCodeValidation,
+  AccountNumberValidaiton,
+  InclusiveNoValidation,
+  validateNationalCardSeriSerial,
+  DateValidation,
+  PasswordSimpleValidation,
+  ShebaNumberValidation,
+  CardNumberValidation,
+  NationalCardSeriSerialValidation,
+  AccountNumberValidation,
+  LengthValidation,
+  IsDateValidation,
+  IsDateAfterOrSameValidation,
+  MaxPriceValidation,
+  IsDateBeforeOrSameValidation,
+  MinPriceValidation,
+  MaxNumberValidation,
+  MinNumberValidation,
+  IsjalaliDateValidation,
+} from "@uxid/utils";
+  `}
+/>
+
+<p>در زیر متدهای تعریف شده را نمایش داده ایم:</p>
+
+<div style={{textAlign:"center"}}>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>نام متد</th>
+    <th>توضیح</th>
+    <th>مثال</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>RequiredValidation</td>
+    <td>ولیدیشن الزامی بودن</td>
+    <th>RequiredValidation(data, Id)(errors)</th>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>MobileValidation</td>
+    <td>ولیدیشن برای شماره تلفن همراه</td>
+    <th>MobileValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>TelValidation</td>
+    <td>ولیدیشن برای شماره تلفن</td>
+    <th>TelValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>FarsiValidation</td>
+    <td>ولیدیشن برای زبان فارسی</td>
+    <th>FarsiValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>NumericValidation</td>
+    <td>ولیدیشن اعداد</td>
+    <th>NumericValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>EnglishValidation</td>
+    <td>ولیدیشن برای فقط حروف و کلمات انگلیسی</td>
+    <th>EnglishValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>EnglishFullValidation</td>
+    <td>ولیدیشن زبان انگلیسی</td>
+    <th>EnglishFullValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>EmailValidation</td>
+    <td>ولیدیشن برای ایمیل</td>
+    <th>EmailValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>PostalCodeValidation</td>
+    <td> ولیدیشن برای کدپستی</td>
+    <th>PostalCodeValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>DomainValidation</td>
+    <td>ولیدیشن دامنه</td>
+    <th>DomainValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>AccountNumberValidaiton</td>
+    <td>ولیدیشن شماره حساب</td>
+    <th>AccountNumberValidaiton(data,key)(errors)</th>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>NationalCodeValidation</td>
+    <td>ولیدیشن برای کدملی</td>
+    <th>NationalCodeValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>InclusiveNoValidation</td>
+    <td>ولیدیشن شامل اعداد</td>
+    <th>InclusiveNoValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>validateNationalCardSeriSerial</td>
+    <td>ولیدیشن سریال کدملی</td>
+    <th>validateNationalCardSeriSerial(val)</th>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>DateValidation</td>
+    <td>ولیدیشن زمانی</td>
+    <th>DateValidation(val)</th>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>PasswordSimpleValidation</td>
+    <td>ولیدیشن یک نمونه از پسوورد</td>
+    <th>PasswordSimpleValidation(val)</th>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>ShebaNumberValidation</td>
+    <td>ولیدیشن شماره شبا</td>
+    <th>ShebaNumberValidation(val)</th>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td>NationalIdValidation</td>
+    <td>ولیدیشن ای دی کدملی</td>
+    <th>NationalIdValidation(val)</th>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>CustomerIdValidation</td>
+    <td>ولیدیشن شناسه مشتری</td>
+    <th>CustomerIdValidation(val)</th>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>NationalCardSeriSerialValidation</td>
+    <td>ولیدیشن سریال کدملی</td>
+    <th>NationalCardSeriSerialValidation(val)</th>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td>CardNumberValidation</td>
+    <td>ولیدیشن شماره کارت</td>
+    <th>CardNumberValidation(val)</th>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>AccountNumberValidation</td>
+    <td>ولیدیشن شماره اکانت</td>
+    <th>AccountNumberValidation(val)</th>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>LengthValidation</td>
+    <td>ولیدیشن طول کاراکتر</td>
+    <th>LengthValidation(val)</th>
+  </tr>
+  <tr>
+    <td>24</td>
+    <td>MinLengthValidation</td>
+    <td>ولیدیشن برای Min طول کاراکتر</td>
+    <th>MinLengthValidation(data,id)(errors)</th>
+  </tr>
+  <tr>
+    <td>25</td>
+    <td>MaxLengthValidation</td>
+    <td>ولیدیشن برای Max طول کاراکتر</td>
+    <th>MaxLengthValidation(data, id, maxlength)(errors)</th>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>MinNumberValidation</td>
+    <td>ولیدیشن برای min اعداد</td>
+    <th>MinNumberValidation(data,key, minNumber)(errors)</th>
+  </tr>
+  <tr>
+    <td>27</td>
+    <td>MaxNumberValidation</td>
+    <td>ولیدیشن برای max اعداد</td>
+    <th>MaxNumberValidation(data,key,maxNumber)(errors)</th>
+  </tr>
+  <tr>
+    <td>28</td>
+    <td>MinPriceValidation</td>
+    <td>ولیدیشن برای کمتریت قیمت</td>
+    <th>MinPriceValidation(data,key,minPrice)(errors)</th>
+  </tr>
+  <tr>
+    <td>29</td>
+    <td>IsDateBeforeOrSameValidation</td>
+    <td>اعتبار فرمت تاریخ</td>
+    <th>IsDateBeforeOrSameValidation(val)</th>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>MaxPriceValidation</td>
+    <td>ولیدیشن قیمت max</td>
+    <th>MaxPriceValidation(data,key,maxPrice)(errors)</th>
+  </tr>
+  <tr>
+    <td>31</td>
+    <td>IsDateAfterOrSameValidation</td>
+    <td>اعتبار فرمت تاریخ</td>
+    <th>
+      IsDateAfterOrSameValidation( targetDate, inputDateformat = "jYYYYjMMjDD",
+      targetDateformat = "jYYYYjMMjDD")(val)
+    </th>
+  </tr>
+  <tr>
+    <td>32</td>
+    <td>IsDateValidation</td>
+    <td>اعتبار فرمت تاریخ</td>
+    <th>IsDateValidation(val)</th>
+  </tr>
+  <tr>
+    <td>33</td>
+    <td>IsjalaliDateValidation</td>
+    <td>اعتبار فرمت تاریخ شمسی</td>
+    <th>IsjalaliDateValidation(val)</th>
+  </tr>
+</table>
+</div>
+
+## نمونه کاملی از ولیدیشن
+
+<p>در زیر نمونه ای از ولیدیشن را برای متد MaxLengthValidation می بینید. </p>
+
+<Source
+  language="js"
+  code={`
+    import { MaxLengthValidation, RequiredValidation } from "@uxid/utils";
+    import { useFormik } from "formik";
+`}
+/>
+

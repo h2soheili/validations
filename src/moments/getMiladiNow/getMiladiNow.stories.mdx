@@ -1,0 +1,56 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { getMiladiNow } from "@uxid/utils";
+import { UXIDSection } from "@uxid/components";
+
+export const GetMiladiNow =()=>{
+    return (
+    <div>
+        <UXIDSection tag="span">
+            {getMiladiNow()}
+        </UXIDSection>
+    </div>
+  );
+}
+
+<Meta title="utils/moments/getMiladiNowDate" />
+
+export const Template = (args) => <GetMiladiNow {...args} />;
+
+## گرفتن تاریخ روز به میلادی
+
+<br />
+
+برای گرفتن تاریخ روز به فرمت میلادی از این متد استفاده میشود
+
+## نحوه استفاده
+
+<br />
+
+`import { getMiladiNow } from "@uxid/utils";`
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    <UXIDSection tag="span">
+        {getMiladiNow()}
+    </UXIDSection>
+  `}
+/>
+
+<br />
+
+<Story name="getMiladiNowDate">
+  {Template.bind({})}
+</Story>
+
+<br />

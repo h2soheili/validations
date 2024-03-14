@@ -1,0 +1,100 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  Props,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { ImgToBase64 } from "@uxid/utils";
+import { UXIDFileInput, UXIDImage } from "@uxid/components";
+import { linkTo } from '@storybook/addon-links'
+
+export const ConvertImgToBase64 =()=>{
+  const [value, setValue] = useState({});
+    return (
+    <div>
+      <UXIDFileInput multiple={true} 
+        getValue={file=> {
+          ImgToBase64(file[0], setValue); 
+          console.log(value)
+        }} />
+    </div>
+  );
+}
+
+<Meta title="utils/imgToBase64" />
+
+export const Template = (args) => <ConvertImgToBase64 {...args} />;
+
+## تبدیل فایل تصویر به کد base64
+
+<br />
+
+از این تابع برای تبدیل فایل تصویر به کد base64 استفاده می شود و خروجی آن یک آبجکت می باشد که داخل آن 
+
+کد base64 می باشد
+
+## نحوه استفاده
+
+<br />
+
+<Source
+  language="js"
+  code={`
+  import { ImgToBase64 } from "@uxid/utils"
+  `}
+/>
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    const [value, setValue] = useState({});
+    <UXIDFileInput multiple={true} getValue={file=> ImgToBase64(file[0], setValue)} />
+    <UXIDImage source={value && value?.base64}/>
+  `}
+/>
+
+<br />
+
+<Story name="ImgToBase64">
+  {Template.bind({})}
+</Story>
+
+<br />
+
+## خروجی
+
+<Source
+  language="js"
+  code={`
+      {
+        base64: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA9AA......"
+      }
+  `}
+/>
+
+## تبدیل کد base64 به تصویر
+
+<br />
+
+<Source
+  language="js"
+  code={`
+  import { UXIDImage } from "@uxid/components"
+  `}
+/>
+
+<br />
+
+<Source
+  language="js"
+  code={`
+    <UXIDImage source={base64}/>
+  `}
+/>
+
+<br />
